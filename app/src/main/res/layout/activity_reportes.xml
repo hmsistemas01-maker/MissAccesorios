@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F8F0FF">
+
+    <!-- HEADER -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@drawable/bg_header_gradient"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Reportes por Proveedor"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="12dp">
+
+            <!-- CARD: Filtros -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="3dp"
+                app:cardBackgroundColor="#FFFFFF">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="14dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="PROVEEDOR"
+                        android:textColor="#9C27B0"
+                        android:textStyle="bold"
+                        android:textSize="11sp"
+                        android:letterSpacing="0.1"
+                        android:layout_marginBottom="6dp"/>
+
+                    <Spinner
+                        android:id="@+id/spinnerProveedor"
+                        android:layout_width="match_parent"
+                        android:layout_height="44dp"
+                        android:background="@drawable/bg_input"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="12dp"
+                        android:layout_marginBottom="14dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="MOSTRAR"
+                        android:textColor="#9C27B0"
+                        android:textStyle="bold"
+                        android:textSize="11sp"
+                        android:letterSpacing="0.1"
+                        android:layout_marginBottom="8dp"/>
+
+                    <RadioGroup
+                        android:id="@+id/rgFiltroCorte"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="14dp">
+
+                        <RadioButton
+                            android:id="@+id/rbTodas"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Todas"
+                            android:textColor="#4A148C"
+                            android:textSize="13sp"
+                            android:checked="true"
+                            android:buttonTint="#9C27B0"/>
+
+                        <RadioButton
+                            android:id="@+id/rbSoloCortadas"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Cortadas"
+                            android:textColor="#4A148C"
+                            android:textSize="13sp"
+                            android:buttonTint="#9C27B0"/>
+
+                        <RadioButton
+                            android:id="@+id/rbSinCortar"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Sin cortar"
+                            android:textColor="#4A148C"
+                            android:textSize="13sp"
+                            android:buttonTint="#9C27B0"/>
+
+                    </RadioGroup>
+
+                    <Button
+                        android:id="@+id/btnBuscarReporte"
+                        android:layout_width="match_parent"
+                        android:layout_height="46dp"
+                        android:text="Buscar"
+                        android:textColor="#FFFFFF"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:background="@drawable/bg_btn_gradient"/>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- CARD: Resumen -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardResumen"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:visibility="gone"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="3dp"
+                app:cardBackgroundColor="#FFFFFF">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="14dp">
+
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:orientation="vertical" android:gravity="center">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="VENTAS" android:textColor="#AB47BC" android:textSize="10sp"
+                            android:letterSpacing="0.08"/>
+                        <TextView android:id="@+id/tvResumenVentas"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="0" android:textColor="#4A148C" android:textSize="22sp"
+                            android:textStyle="bold"/>
+                    </LinearLayout>
+
+                    <View android:layout_width="1dp" android:layout_height="match_parent"
+                        android:background="#F3E5F5" android:layout_marginTop="4dp" android:layout_marginBottom="4dp"/>
+
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:orientation="vertical" android:gravity="center">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="TOTAL NETO" android:textColor="#AB47BC" android:textSize="10sp"
+                            android:letterSpacing="0.08"/>
+                        <TextView android:id="@+id/tvTotalNetoReporte"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="$0.00" android:textColor="#4A148C" android:textSize="20sp"
+                            android:textStyle="bold"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- CARD: Detalle productos -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardProductos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:visibility="gone"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="3dp"
+                app:cardBackgroundColor="#FFFFFF">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="14dp">
+
+                    <TextView
+                        android:id="@+id/tvCardTitulo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="PRODUCTOS VENDIDOS"
+                        android:textColor="#9C27B0"
+                        android:textStyle="bold"
+                        android:textSize="11sp"
+                        android:letterSpacing="0.1"
+                        android:layout_marginBottom="10dp"/>
+
+                    <LinearLayout
+                        android:id="@+id/llProductosReporte"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"/>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

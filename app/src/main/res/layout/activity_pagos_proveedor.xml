@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F8F0FF">
+
+    <!-- HEADER -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@drawable/bg_header_gradient"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pagos a Proveedores"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="12dp">
+
+            <!-- CARD: Proveedor + fecha fin -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="3dp"
+                app:cardBackgroundColor="#FFFFFF">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="14dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="PROVEEDOR"
+                        android:textColor="#9C27B0"
+                        android:textStyle="bold"
+                        android:textSize="11sp"
+                        android:letterSpacing="0.1"
+                        android:layout_marginBottom="6dp"/>
+
+                    <Spinner
+                        android:id="@+id/spinnerProvPago"
+                        android:layout_width="match_parent"
+                        android:layout_height="44dp"
+                        android:background="@drawable/bg_input"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="12dp"
+                        android:layout_marginBottom="14dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="INCLUIR VENTAS CORTADAS HASTA"
+                        android:textColor="#9C27B0"
+                        android:textStyle="bold"
+                        android:textSize="11sp"
+                        android:letterSpacing="0.1"
+                        android:layout_marginBottom="6dp"/>
+
+                    <!-- Info fecha inicio automática -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Desde: "
+                            android:textColor="#AB47BC"
+                            android:textSize="12sp"/>
+                        <TextView
+                            android:id="@+id/tvDesdeAutomatico"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="primer registro"
+                            android:textColor="#4A148C"
+                            android:textSize="12sp"
+                            android:textStyle="bold"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="  (automático)"
+                            android:textColor="#CE93D8"
+                            android:textSize="11sp"/>
+                    </LinearLayout>
+
+                    <!-- Selector fecha fin -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="14dp">
+
+                        <TextView
+                            android:id="@+id/tvFechaFinPago"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="44dp"
+                            android:gravity="center_vertical"
+                            android:paddingStart="12dp"
+                            android:textColor="#4A148C"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            android:background="@drawable/bg_input"/>
+
+                        <Button
+                            android:id="@+id/btnElegirFechaFin"
+                            android:layout_width="wrap_content"
+                            android:layout_height="44dp"
+                            android:text="📅"
+                            android:textSize="18sp"
+                            android:background="@drawable/bg_icon_circle"
+                            android:layout_marginStart="8dp"/>
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/btnBuscarPago"
+                        android:layout_width="match_parent"
+                        android:layout_height="46dp"
+                        android:text="Buscar ventas pendientes"
+                        android:textColor="#FFFFFF"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:background="@drawable/bg_btn_gradient"/>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- CARD: Info período detectado -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardPeriodoPago"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:visibility="gone"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="3dp"
+                app:cardBackgroundColor="#FFFFFF">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="14dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="PERÍODO DE PAGO"
+                        android:textColor="#9C27B0"
+                        android:textStyle="bold"
+                        android:textSize="11sp"
+                        android:letterSpacing="0.1"
+                        android:layout_marginBottom="8dp"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                            android:layout_weight="1" android:orientation="vertical" android:gravity="center">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="DESDE" android:textColor="#AB47BC" android:textSize="10sp"/>
+                            <TextView android:id="@+id/tvPeriodoDesde"
+                                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="—" android:textColor="#4A148C" android:textSize="13sp"
+                                android:textStyle="bold"/>
+                        </LinearLayout>
+
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="→" android:textColor="#CE93D8" android:textSize="20sp"
+                            android:paddingStart="8dp" android:paddingEnd="8dp"/>
+
+                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                            android:layout_weight="1" android:orientation="vertical" android:gravity="center">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="HASTA" android:textColor="#AB47BC" android:textSize="10sp"/>
+                            <TextView android:id="@+id/tvPeriodoHasta"
+                                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="—" android:textColor="#4A148C" android:textSize="13sp"
+                                android:textStyle="bold"/>
+                        </LinearLayout>
+
+                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                            android:layout_weight="1" android:orientation="vertical" android:gravity="center">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="VENTAS" android:textColor="#AB47BC" android:textSize="10sp"/>
+                            <TextView android:id="@+id/tvPeriodoVentas"
+                                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="0" android:textColor="#4A148C" android:textSize="20sp"
+                                android:textStyle="bold"/>
+                        </LinearLayout>
+
+                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                            android:layout_weight="1" android:orientation="vertical" android:gravity="center">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="TOTAL" android:textColor="#AB47BC" android:textSize="10sp"/>
+                            <TextView android:id="@+id/tvPeriodoTotal"
+                                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="$0.00" android:textColor="#4A148C" android:textSize="16sp"
+                                android:textStyle="bold"/>
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- CARD: Detalle productos -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardProductosPago"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:visibility="gone"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="3dp"
+                app:cardBackgroundColor="#FFFFFF">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="14dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="VENTAS PENDIENTES DE PAGO"
+                        android:textColor="#9C27B0"
+                        android:textStyle="bold"
+                        android:textSize="11sp"
+                        android:letterSpacing="0.1"
+                        android:layout_marginBottom="10dp"/>
+
+                    <LinearLayout
+                        android:id="@+id/llProductosPago"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"/>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- BOTÓN CONFIRMAR PAGO -->
+            <Button
+                android:id="@+id/btnConfirmarPago"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="Confirmar Pago"
+                android:textColor="#FFFFFF"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:background="@drawable/bg_btn_gradient"
+                android:visibility="gone"
+                android:layout_marginBottom="8dp"/>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

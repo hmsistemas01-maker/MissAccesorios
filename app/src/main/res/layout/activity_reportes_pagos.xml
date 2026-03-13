@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F8F0FF">
+
+    <!-- HEADER -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@drawable/bg_header_gradient"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Reporte de Pagos"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="12dp">
+
+            <!-- CARD: Filtro fechas -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="3dp"
+                app:cardBackgroundColor="#FFFFFF">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="14dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="PERIODO"
+                        android:textColor="#9C27B0"
+                        android:textStyle="bold"
+                        android:textSize="11sp"
+                        android:letterSpacing="0.1"
+                        android:layout_marginBottom="8dp"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="12dp">
+
+                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                            android:layout_weight="1" android:orientation="vertical"
+                            android:layout_marginEnd="6dp">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="Desde" android:textColor="#AB47BC" android:textSize="10sp"
+                                android:layout_marginBottom="3dp"/>
+                            <TextView
+                                android:id="@+id/tvFechaInicioPagos"
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:gravity="center_vertical"
+                                android:paddingStart="12dp"
+                                android:textColor="#4A148C"
+                                android:textSize="14sp"
+                                android:textStyle="bold"
+                                android:background="@drawable/bg_input"/>
+                        </LinearLayout>
+
+                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                            android:layout_weight="1" android:orientation="vertical"
+                            android:layout_marginStart="6dp">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="Hasta" android:textColor="#AB47BC" android:textSize="10sp"
+                                android:layout_marginBottom="3dp"/>
+                            <TextView
+                                android:id="@+id/tvFechaFinPagos"
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:gravity="center_vertical"
+                                android:paddingStart="12dp"
+                                android:textColor="#4A148C"
+                                android:textSize="14sp"
+                                android:textStyle="bold"
+                                android:background="@drawable/bg_input"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/btnBuscarPagos"
+                        android:layout_width="match_parent"
+                        android:layout_height="46dp"
+                        android:text="Buscar"
+                        android:textColor="#FFFFFF"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:background="@drawable/bg_btn_gradient"/>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- CARD: Resumen total pagado -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardResumenPagos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:visibility="gone"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="3dp"
+                app:cardBackgroundColor="#FFFFFF">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="14dp">
+
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:orientation="vertical" android:gravity="center">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="PAGOS" android:textColor="#AB47BC" android:textSize="10sp"
+                            android:letterSpacing="0.08"/>
+                        <TextView android:id="@+id/tvNumPagos"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="0" android:textColor="#4A148C" android:textSize="22sp"
+                            android:textStyle="bold"/>
+                    </LinearLayout>
+
+                    <View android:layout_width="1dp" android:layout_height="match_parent"
+                        android:background="#F3E5F5" android:layout_marginTop="4dp" android:layout_marginBottom="4dp"/>
+
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:orientation="vertical" android:gravity="center">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="PROVEEDORES" android:textColor="#AB47BC" android:textSize="10sp"
+                            android:letterSpacing="0.08"/>
+                        <TextView android:id="@+id/tvNumProvsPagados"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="0" android:textColor="#4A148C" android:textSize="22sp"
+                            android:textStyle="bold"/>
+                    </LinearLayout>
+
+                    <View android:layout_width="1dp" android:layout_height="match_parent"
+                        android:background="#F3E5F5" android:layout_marginTop="4dp" android:layout_marginBottom="4dp"/>
+
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:orientation="vertical" android:gravity="center">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="TOTAL" android:textColor="#AB47BC" android:textSize="10sp"
+                            android:letterSpacing="0.08"/>
+                        <TextView android:id="@+id/tvTotalPagado"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="$0.00" android:textColor="#4A148C" android:textSize="15sp"
+                            android:textStyle="bold"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- CARD: Resumen por proveedor -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardResumenProveedores"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:visibility="gone"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="3dp"
+                app:cardBackgroundColor="#FFFFFF">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="14dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="RESUMEN POR PROVEEDOR"
+                        android:textColor="#9C27B0"
+                        android:textStyle="bold"
+                        android:textSize="11sp"
+                        android:letterSpacing="0.1"
+                        android:layout_marginBottom="10dp"/>
+
+                    <LinearLayout
+                        android:id="@+id/llResumenProveedores"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"/>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- CARD: Historial de pagos individuales -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardDetallePagos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:visibility="gone"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="3dp"
+                app:cardBackgroundColor="#FFFFFF">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="14dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="PAGOS INDIVIDUALES"
+                        android:textColor="#9C27B0"
+                        android:textStyle="bold"
+                        android:textSize="11sp"
+                        android:letterSpacing="0.1"
+                        android:layout_marginBottom="10dp"/>
+
+                    <LinearLayout
+                        android:id="@+id/llDetallePagos"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"/>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F8F0FF">
+
+    <!-- HEADER -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@drawable/bg_header_gradient"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Corte de Caja"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="12dp">
+
+            <!-- CARD: Selector de fecha -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="3dp"
+                app:cardBackgroundColor="#FFFFFF">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="14dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="📅  Fecha:"
+                        android:textColor="#AB47BC"
+                        android:textSize="13sp"
+                        android:layout_marginEnd="10dp"/>
+
+                    <TextView
+                        android:id="@+id/tvFechaCorte"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="--/--/----"
+                        android:textColor="#4A148C"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:background="@drawable/bg_input"
+                        android:padding="8dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="  (toca para cambiar)"
+                        android:textColor="#CE93D8"
+                        android:textSize="10sp"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- CARD: Resumen por método con contadores -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="3dp"
+                app:cardBackgroundColor="#FFFFFF">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="14dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="VENTAS POR MÉTODO"
+                        android:textColor="#9C27B0"
+                        android:textStyle="bold"
+                        android:textSize="11sp"
+                        android:letterSpacing="0.1"
+                        android:layout_marginBottom="12dp"/>
+
+                    <!-- Efectivo -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="10dp">
+
+                        <LinearLayout
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:background="@drawable/bg_icon_circle"
+                            android:gravity="center">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="💵"
+                                android:textSize="16sp"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:layout_marginStart="10dp">
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:gravity="center_vertical">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Efectivo"
+                                    android:textColor="#4A148C"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold"/>
+                                <TextView
+                                    android:id="@+id/tvContEfectivo"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="  0 ventas"
+                                    android:textColor="#AB47BC"
+                                    android:textSize="12sp"/>
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/tvTotalEfectivo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="$0.00"
+                            android:textColor="#4A148C"
+                            android:textSize="15sp"
+                            android:textStyle="bold"/>
+                    </LinearLayout>
+
+                    <!-- Divider -->
+                    <View android:layout_width="match_parent" android:layout_height="1dp"
+                        android:background="#F3E5F5" android:layout_marginBottom="10dp"/>
+
+                    <!-- Tarjeta -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="6dp">
+
+                        <LinearLayout
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:background="@drawable/bg_icon_circle"
+                            android:gravity="center">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="💳"
+                                android:textSize="16sp"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:layout_marginStart="10dp">
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:gravity="center_vertical">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Tarjeta"
+                                    android:textColor="#4A148C"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold"/>
+                                <TextView
+                                    android:id="@+id/tvContTarjeta"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="  0 ventas"
+                                    android:textColor="#AB47BC"
+                                    android:textSize="12sp"/>
+                            </LinearLayout>
+                            <TextView
+                                android:id="@+id/tvComisionTarjeta"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text=""
+                                android:textColor="#E91E63"
+                                android:textSize="10sp"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="end">
+                            <TextView
+                                android:id="@+id/tvBrutoTarjeta"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text=""
+                                android:textColor="#CE93D8"
+                                android:textSize="10sp"/>
+                            <TextView
+                                android:id="@+id/tvTotalTarjeta"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="$0.00"
+                                android:textColor="#4A148C"
+                                android:textSize="15sp"
+                                android:textStyle="bold"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- Divider -->
+                    <View android:layout_width="match_parent" android:layout_height="1dp"
+                        android:background="#F3E5F5" android:layout_marginBottom="10dp"/>
+
+                    <!-- Transferencia -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <LinearLayout
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:background="@drawable/bg_icon_circle"
+                            android:gravity="center">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="🏦"
+                                android:textSize="16sp"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:layout_marginStart="10dp">
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:gravity="center_vertical">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Transferencia"
+                                    android:textColor="#4A148C"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold"/>
+                                <TextView
+                                    android:id="@+id/tvContTransf"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="  0 ventas"
+                                    android:textColor="#AB47BC"
+                                    android:textSize="12sp"/>
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/tvTotalTransf"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="$0.00"
+                            android:textColor="#4A148C"
+                            android:textSize="15sp"
+                            android:textStyle="bold"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- CARD: Total neto grande -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="3dp"
+                app:cardBackgroundColor="#FFFFFF">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="14dp"
+                    android:gravity="center_vertical">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="TOTAL VENTAS"
+                            android:textColor="#AB47BC"
+                            android:textSize="10sp"
+                            android:letterSpacing="0.08"/>
+                        <TextView
+                            android:id="@+id/tvContTotal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0 ventas"
+                            android:textColor="#7B1FA2"
+                            android:textSize="13sp"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="end">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="NETO A RECIBIR"
+                            android:textColor="#AB47BC"
+                            android:textSize="10sp"
+                            android:letterSpacing="0.08"/>
+                        <TextView
+                            android:id="@+id/tvTotalNeto"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="$0.00"
+                            android:textColor="#4A148C"
+                            android:textSize="26sp"
+                            android:textStyle="bold"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- CARD: Desglose por proveedor -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="3dp"
+                app:cardBackgroundColor="#FFFFFF">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="14dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="DESGLOSE POR PROVEEDOR"
+                        android:textColor="#9C27B0"
+                        android:textStyle="bold"
+                        android:textSize="11sp"
+                        android:letterSpacing="0.1"
+                        android:layout_marginBottom="8dp"/>
+
+                    <LinearLayout
+                        android:id="@+id/llProveedoresCorte"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"/>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- BOTÓN REALIZAR CORTE -->
+            <Button
+                android:id="@+id/btnRealizarCorte"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:text="✂  Realizar Corte"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:background="@drawable/bg_btn_gradient"
+                android:layout_marginBottom="8dp"/>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

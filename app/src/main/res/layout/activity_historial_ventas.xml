@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F8F0FF">
+
+    <!-- HEADER -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@drawable/bg_header_gradient"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Historial de Ventas"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+    <!-- FILTROS DE FECHA -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        app:cardCornerRadius="14dp"
+        app:cardElevation="3dp"
+        app:cardBackgroundColor="#FFFFFF">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="12dp">
+
+            <!-- Accesos rápidos -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="10dp">
+
+                <Button android:id="@+id/btnHoy"
+                    android:layout_width="0dp" android:layout_height="36dp"
+                    android:layout_weight="1" android:text="Hoy"
+                    android:textSize="12sp" android:textColor="#FFFFFF"
+                    android:background="@drawable/bg_btn_purple"
+                    android:layout_marginEnd="4dp"/>
+
+                <Button android:id="@+id/btnAyer"
+                    android:layout_width="0dp" android:layout_height="36dp"
+                    android:layout_weight="1" android:text="Ayer"
+                    android:textSize="12sp" android:textColor="#6A0DAD"
+                    android:background="@drawable/bg_input"
+                    android:layout_marginEnd="4dp"/>
+
+                <Button android:id="@+id/btnSemana"
+                    android:layout_width="0dp" android:layout_height="36dp"
+                    android:layout_weight="1" android:text="7 días"
+                    android:textSize="12sp" android:textColor="#6A0DAD"
+                    android:background="@drawable/bg_input"
+                    android:layout_marginEnd="4dp"/>
+
+                <Button android:id="@+id/btnMes"
+                    android:layout_width="0dp" android:layout_height="36dp"
+                    android:layout_weight="1" android:text="Mes"
+                    android:textSize="12sp" android:textColor="#6A0DAD"
+                    android:background="@drawable/bg_input"/>
+            </LinearLayout>
+
+            <!-- Rango personalizado -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:orientation="vertical" android:layout_marginEnd="6dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Desde" android:textColor="#AB47BC" android:textSize="10sp"
+                        android:layout_marginBottom="2dp"/>
+                    <Button android:id="@+id/btnFechaInicio"
+                        android:layout_width="match_parent" android:layout_height="36dp"
+                        android:textSize="11sp" android:textColor="#4A148C"
+                        android:background="@drawable/bg_input"/>
+                </LinearLayout>
+
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:orientation="vertical" android:layout_marginEnd="6dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Hasta" android:textColor="#AB47BC" android:textSize="10sp"
+                        android:layout_marginBottom="2dp"/>
+                    <Button android:id="@+id/btnFechaFin"
+                        android:layout_width="match_parent" android:layout_height="36dp"
+                        android:textSize="11sp" android:textColor="#4A148C"
+                        android:background="@drawable/bg_input"/>
+                </LinearLayout>
+
+                <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text=" " android:textSize="10sp" android:layout_marginBottom="2dp"/>
+                    <Button android:id="@+id/btnBuscar"
+                        android:layout_width="wrap_content" android:layout_height="36dp"
+                        android:text="Buscar" android:textColor="#FFFFFF" android:textSize="12sp"
+                        android:background="@drawable/bg_btn_gradient"
+                        android:paddingStart="14dp" android:paddingEnd="14dp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- RESUMEN DEL DÍA -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="10dp"
+        app:cardCornerRadius="14dp"
+        app:cardElevation="3dp"
+        app:cardBackgroundColor="#FFFFFF">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="12dp">
+
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:orientation="vertical" android:gravity="center">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="VENTAS" android:textColor="#AB47BC" android:textSize="10sp"
+                    android:letterSpacing="0.08"/>
+                <TextView android:id="@+id/tvNumVentas"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="0" android:textColor="#4A148C" android:textSize="22sp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+            <View android:layout_width="1dp" android:layout_height="match_parent"
+                android:background="#F3E5F5" android:layout_marginTop="4dp" android:layout_marginBottom="4dp"/>
+
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:orientation="vertical" android:gravity="center">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="TOTAL BRUTO" android:textColor="#AB47BC" android:textSize="10sp"
+                    android:letterSpacing="0.08"/>
+                <TextView android:id="@+id/tvTotalBruto"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="$0.00" android:textColor="#4A148C" android:textSize="16sp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+            <View android:layout_width="1dp" android:layout_height="match_parent"
+                android:background="#F3E5F5" android:layout_marginTop="4dp" android:layout_marginBottom="4dp"/>
+
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:orientation="vertical" android:gravity="center">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="TOTAL NETO" android:textColor="#AB47BC" android:textSize="10sp"
+                    android:letterSpacing="0.08"/>
+                <TextView android:id="@+id/tvTotalNeto"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="$0.00" android:textColor="#7B1FA2" android:textSize="16sp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- LISTA DE VENTAS -->
+    <ListView
+        android:id="@+id/lvVentas"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="12dp"
+        android:divider="@null"/>
+
+</LinearLayout>
